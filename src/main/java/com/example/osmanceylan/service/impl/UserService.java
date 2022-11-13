@@ -61,9 +61,8 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public Optional<UserDto> findByUsername(String username) {
-        User res = repository.findByUsername(username).orElseThrow(() -> new UserNotFoundException());
-        return Optional.ofNullable(entity2Dto(res));
+    public Optional<User> findByUsername(String username) {
+        return repository.findByUsername(username);
 
 
     }

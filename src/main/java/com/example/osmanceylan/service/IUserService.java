@@ -18,7 +18,7 @@ public interface IUserService {
     // Find
     UserDto find(Long id) ;
     // Find by Username
-    Optional<UserDto> findByUsername(String username);
+    Optional<User> findByUsername(String username);
     // Update
     UserDto update(Long id, UserDto userDto) ;
     // Delete

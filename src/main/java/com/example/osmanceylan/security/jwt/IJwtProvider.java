@@ -16,5 +16,5 @@ public interface IJwtProvider {
     Authentication getAuthentication(HttpServletRequest httpServletRequest);
 
     // 3rd Method (Token time control)
-    boolean isValidToken(HttpServletRequest httpServletRequest);
+    boolean isValidateToken(HttpServletRequest httpServletRequest);
 }

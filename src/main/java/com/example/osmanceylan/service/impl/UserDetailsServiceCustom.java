@@ -1,6 +1,7 @@
 package com.example.osmanceylan.service.impl;
 
 import com.example.osmanceylan.dto.UserDto;
+import com.example.osmanceylan.entity.User;
 import com.example.osmanceylan.exception.UserNotFoundException;
 import com.example.osmanceylan.security.UserPrincipal;
 import com.example.osmanceylan.service.IUserService;
@@ -21,7 +22,7 @@ public class UserDetailsServiceCustom implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UserNotFoundException {
-        UserDto dto = service.findByUsername(username).orElseThrow(() -> new UserNotFoundException());
-        return new UserPrincipal(dto.getId(), dto.getUsername(), dto.getPassword());
+        User entity = service.findByUsername(username).orElseThrow(() -> new UserNotFoundException());
+        return new UserPrincipal(entity.getId(), entity.getUsername(), entity.getPassword());
     }
 }

@@ -21,7 +21,7 @@ import java.util.Date;
 
 //Entity
 @Entity
-@Table(name = "User")
+@Table(name = "users")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -29,13 +29,12 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "username",length = 100, nullable = false)
+    @Column(name = "username")
     private String username;
-    @Column(name = "name",length = 100, nullable = false)
     private String name;
-    @Column(name = "password",length = 100, nullable = false)
     private String password;
-    @Column(name = "createdDate")
+
+    @Column(name = "created_date")
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
