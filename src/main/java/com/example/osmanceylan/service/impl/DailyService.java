@@ -28,6 +28,17 @@ public class DailyService implements IDailyService {
     public List<JsonElement> list() {
         return RetrofitCommonGeneric.retroitGenerics(iDailyServiceRequest.list());
     }
+
+    @Override
+    public JsonElement find(Long id) {
+        return RetrofitCommonGeneric.retroitGenerics(iDailyServiceRequest.find(id));
+    }
+
+    @Override
+    public JsonElement update(Long id, JsonElement element) {
+        return RetrofitCommonGeneric.retroitGenerics(iDailyServiceRequest.update(id,element));
+    }
+
     // DELETE
     @Override
     public void delete(Long id) {

@@ -9,6 +9,10 @@ public interface IDailyService {
     JsonElement save(JsonElement element);
     //LIST
     List<JsonElement> list();
+    //FIND
+    JsonElement find(Long id);
+    //UPDATE
+    JsonElement update(Long id, JsonElement element);
     //DELETE
     void delete(Long id);
 }
