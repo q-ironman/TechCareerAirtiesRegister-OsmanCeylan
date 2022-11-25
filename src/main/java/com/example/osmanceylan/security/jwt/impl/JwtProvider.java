@@ -133,13 +133,13 @@ public class JwtProvider implements IJwtProvider {
         String username = claims.getSubject();
         Long userId = claims.get("userId", Long.class);
         //dikakt kimlik doğrulama roles ile başlamalıdır. eğer rolde yoksa başına roles eklemeliyiz
-        List<GrantedAuthority> authorities = Arrays.stream(claims.get("roles").toString().split(","))
+        List<SimpleGrantedAuthority> authorities = Arrays.stream(claims.get("roles").toString().split(","))
                 .map(role -> role.startsWith("ROLE_") ? role : "ROLE_" + role)
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
 
         //UserDetails kimlik doğrulama oluşturmak
-        UserDetails userDetails = new UserPrincipal(userId, username, null);
+        UserDetails userDetails = new UserPrincipal(userId,username,null, authorities);
         Authentication kimlikDogrulama = username != null ? new UsernamePasswordAuthenticationToken(userDetails, null, authorities) : null;
         return kimlikDogrulama;
     }

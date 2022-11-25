@@ -33,6 +33,7 @@ public class User implements Serializable {
     private String username;
     private String name;
     private String password;
+    private String authorities;
 
     @Column(name = "created_date")
     @CreationTimestamp

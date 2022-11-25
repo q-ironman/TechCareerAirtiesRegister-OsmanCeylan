@@ -1,5 +1,6 @@
 package com.example.osmanceylan.security;
 
+import com.example.osmanceylan.entity.User;
 import com.example.osmanceylan.roles.ERoles;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,8 +9,10 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 //lombok
 @Data
@@ -24,15 +27,19 @@ public class UserPrincipal implements UserDetails {
     private String username;
     transient private String password;
 
-    public UserPrincipal(Long id, String username, String password) {
+    //private User user;
+    private List<SimpleGrantedAuthority> authorities;
+    public UserPrincipal(Long id, String username, String password, List<SimpleGrantedAuthority> authorities) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.authorities = authorities;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singletonList(new SimpleGrantedAuthority(ERoles.ADMIN.toString()));
+        return authorities;
+        //Collections.singletonList(new SimpleGrantedAuthority(ERoles.ADMIN.toString()));
     }
 
     @Override

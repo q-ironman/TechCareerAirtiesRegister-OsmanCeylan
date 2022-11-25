@@ -1,6 +1,8 @@
 package com.example.osmanceylan.security;
 
 import com.example.osmanceylan.bean.PasswordEncoderBean;
+import com.example.osmanceylan.roles.ERoles;
+import com.example.osmanceylan.roles.Roles;
 import com.example.osmanceylan.security.jwt.JwtAuthorizationFilter;
 import com.example.osmanceylan.service.impl.UserDetailsServiceCustom;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +12,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -24,6 +27,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @EnableWebSecurity
 @Configuration
+@EnableGlobalMethodSecurity(
+        prePostEnabled = true,
+        securedEnabled = true,
+        jsr250Enabled = true
+)
 public class SecurityConfigurationCustom extends WebSecurityConfigurerAdapter {
 
     //field
@@ -76,8 +84,8 @@ public class SecurityConfigurationCustom extends WebSecurityConfigurerAdapter {
 
         //login
         http.authorizeRequests()
-                .antMatchers(HttpMethod.OPTIONS).permitAll()
                 .antMatchers("/api/authentication/**").permitAll() //login and register
+                .antMatchers(HttpMethod.OPTIONS).permitAll()
                 .anyRequest().authenticated();
 
         //authentication JWT için yazıldı

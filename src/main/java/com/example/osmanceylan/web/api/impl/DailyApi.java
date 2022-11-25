@@ -1,12 +1,14 @@
 package com.example.osmanceylan.web.api.impl;
 
 import com.example.osmanceylan.error.ApiResult;
+import com.example.osmanceylan.roles.ERoles;
 import com.example.osmanceylan.service.IDailyService;
 import com.example.osmanceylan.web.api.IDailyApi;
 import com.google.gson.JsonElement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +30,7 @@ public class DailyApi implements IDailyApi {
     @PostMapping
     public ApiResult save(@RequestBody JsonElement element) {
         service.save(element);
+
         return new ApiResult(200,"Daily Created",PATH);
     }
 
