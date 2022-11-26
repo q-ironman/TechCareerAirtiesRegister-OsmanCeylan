@@ -1,6 +1,7 @@
 # Technologies
 * Java SE
 * Java EE
+* Retrofit
 * Spring Boot
 ```shell
 Spring Data 
