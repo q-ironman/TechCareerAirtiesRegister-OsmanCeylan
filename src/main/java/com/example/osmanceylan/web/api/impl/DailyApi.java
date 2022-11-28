@@ -66,5 +66,6 @@ public class DailyApi implements IDailyApi {
     public ApiResult delete(@PathVariable(name = "id") Long id) {
         service.delete(id);
         return new ApiResult(200,"Deleted",PATH);
+
     }
 }
