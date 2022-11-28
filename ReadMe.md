@@ -10,5 +10,4 @@ Spring REST
 Spring Security
 ```
 * H2 Database
-* Hibernate Validator
 
