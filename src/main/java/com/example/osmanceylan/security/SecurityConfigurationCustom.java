@@ -28,7 +28,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebSecurity
 @Configuration
 @EnableGlobalMethodSecurity(
-        jsr250Enabled = true
+        securedEnabled = true
+
 )
 public class SecurityConfigurationCustom extends WebSecurityConfigurerAdapter {
 
