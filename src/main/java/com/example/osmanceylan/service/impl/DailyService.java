@@ -50,7 +50,7 @@ public class DailyService implements IDailyService {
     // DELETE
     @Override
     @Secured(Roles.admin)
-    public void delete(Long id) {
-        RetrofitCommonGeneric.retroitGenerics(iDailyServiceRequest.delete(id));
+    public JsonElement delete(Long id) {
+        return RetrofitCommonGeneric.retroitGenerics(iDailyServiceRequest.delete(id));
     }
 }

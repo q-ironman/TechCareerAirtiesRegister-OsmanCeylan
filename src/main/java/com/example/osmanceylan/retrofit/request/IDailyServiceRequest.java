@@ -21,5 +21,5 @@ public interface IDailyServiceRequest {
     Call<JsonElement> update(@Path("id") Long id, @Body JsonElement element);
     //DELETE
     @DELETE("api/daily/v1/delete/{id}")
-    Call<Void> delete(@Path("id")Long id);
+    Call<JsonElement> delete(@Path("id")Long id);
 }

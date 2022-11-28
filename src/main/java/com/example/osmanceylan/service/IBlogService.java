@@ -14,5 +14,5 @@ public interface IBlogService {
     //UPDATE
     JsonElement update(Long id, JsonElement element);
     //DELETE
-    void delete(Long id);
+    JsonElement delete(Long id);
 }

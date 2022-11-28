@@ -10,6 +10,6 @@ public interface IBlogApi {
     ApiResult save(JsonElement element);
     ResponseEntity<List<?>> list();
     ResponseEntity<?> find(Long id);
-    ApiResult update(Long id,JsonElement element);
-    ApiResult delete(Long id);
+    ResponseEntity<?> update(Long id,JsonElement element);
+    ResponseEntity<?> delete(Long id);
 }

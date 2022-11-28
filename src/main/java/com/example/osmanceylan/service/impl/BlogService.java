@@ -47,7 +47,7 @@ public class BlogService implements IBlogService {
 
     @Override
     @Secured(Roles.admin)
-    public void delete(Long id) {
-        RetrofitCommonGeneric.retroitGenerics(iBlogServiceRequest.delete(id));
+    public JsonElement delete(Long id) {
+       return RetrofitCommonGeneric.retroitGenerics(iBlogServiceRequest.delete(id));
     }
 }

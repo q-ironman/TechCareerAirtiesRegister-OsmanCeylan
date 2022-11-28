@@ -54,18 +54,16 @@ public class DailyApi implements IDailyApi {
     // http://localhost:6060/gateway/daily ==> PUT
     @Override
     @PutMapping("/{id}")
-    public ApiResult update(@PathVariable(name = "id") Long id, @RequestBody JsonElement element) {
-        service.update(id,element);
-        return new ApiResult(200,"Updated",PATH);
+    public ResponseEntity<?> update(@PathVariable(name = "id") Long id, @RequestBody JsonElement element) {
+        return ResponseEntity.ok(service.update(id,element));
     }
 
     //DELETE
     // http://localhost:6060/gateway/daily ==> DELETE
     @Override
     @DeleteMapping("/{id}")
-    public ApiResult delete(@PathVariable(name = "id") Long id) {
-        service.delete(id);
-        return new ApiResult(200,"Deleted",PATH);
+    public ResponseEntity<?> delete(@PathVariable(name = "id") Long id) {
+        return ResponseEntity.ok(service.delete(id));
 
     }
 }

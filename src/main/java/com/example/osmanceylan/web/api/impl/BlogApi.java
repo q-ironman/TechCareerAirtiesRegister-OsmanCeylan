@@ -49,17 +49,16 @@ public class BlogApi implements IBlogApi {
     // http://localhost:6060/gateway/blog ==> PUT
     @Override
     @PutMapping("/{id}")
-    public ApiResult update(@PathVariable(name = "id") Long id, @RequestBody JsonElement element) {
-        service.update(id,element);
-        return new ApiResult(200,"Blog Updated",PATH);
+    public ResponseEntity<?> update(@PathVariable(name = "id") Long id, @RequestBody JsonElement element) {
+        return ResponseEntity.ok(service.update(id,element));
+
     }
 
     //DELETE
     // http://localhost:6060/gateway/blog ==> DELETE
     @Override
     @DeleteMapping("/{id}")
-    public ApiResult delete(@PathVariable(name = "id") Long id) {
-        service.delete(id);
-        return new ApiResult(200,"Blog Deleted",PATH);
+    public ResponseEntity<?> delete(@PathVariable(name = "id") Long id) {
+        return ResponseEntity.ok(service.delete(id));
     }
 }
