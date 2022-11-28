@@ -1,0 +1,57 @@
+//Login
+http://localhost:6060//api/authentication/login
+{
+    "username":"admin",
+    "password":"root"
+}
+//Register
+http://localhost:6060/api/authentication/register
+{
+    "username":"reader",
+    "name":"name",
+    "authorities":"READER",
+    "password":"root"
+}
+
+
+//BLOG
+//CREATE
+http://localhost:6060/gateway/blog ==> POST
+{
+    "header":"Header2",
+    "context":"Content2gateway",
+    "image":"image2"
+}
+//LIST
+http://localhost:6060/gateway/blog ==> GET
+//FIND
+http://localhost:6060/gateway/blog/2 ==> GET
+//UPDATE
+http://localhost:6060/gateway/blog/3 ==> PUT
+{
+    "header": "Header1update",
+    "context": "Update1gateway",
+    "image": "image1"
+}
+//DELETE
+http://localhost:6060/gateway/blog/3 ==> DELETE
+
+//DAILY
+//CREATE
+http://localhost:6060/gateway/daily ==> POST
+{
+    "name":"daily1gateway5AUTHtest23.47",
+    "description":"description1gate4way"
+}
+//LIST
+http://localhost:6060/gateway/daily ==> GET
+//FIND
+http://localhost:6060/gateway/daily/3 ==> GET
+//UPDATE
+http://localhost:6060/gateway/daily/2 ==> PUT
+{
+    "name":"daily1gateway5updatetest",
+    "description":"description1gate4way"
+}
+//DELETE
+http://localhost:6060/gateway/daily/3 ==> DELETE

@@ -22,7 +22,7 @@ public class BlogService implements IBlogService {
 
 
     @Override
-    @Secured(Roles.admin)
+    @Secured({Roles.writer,Roles.admin})
     public JsonElement save(JsonElement element) {
         return RetrofitCommonGeneric.retroitGenerics(iBlogServiceRequest.save(element));
     }
@@ -46,7 +46,7 @@ public class BlogService implements IBlogService {
     }
 
     @Override
-    @Secured({Roles.writer,Roles.admin})
+    @Secured(Roles.admin)
     public void delete(Long id) {
         RetrofitCommonGeneric.retroitGenerics(iBlogServiceRequest.delete(id));
     }

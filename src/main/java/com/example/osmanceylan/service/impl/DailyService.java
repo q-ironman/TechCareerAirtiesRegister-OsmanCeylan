@@ -24,7 +24,7 @@ public class DailyService implements IDailyService {
 
     // SAVE
     @Override
-    @Secured(Roles.admin)
+    @Secured({Roles.writer,Roles.admin})
     public JsonElement save(JsonElement element) {
         return RetrofitCommonGeneric.retroitGenerics(iDailyServiceRequest.save(element));
     }
@@ -49,7 +49,7 @@ public class DailyService implements IDailyService {
 
     // DELETE
     @Override
-    @Secured({Roles.writer,Roles.admin})
+    @Secured(Roles.admin)
     public void delete(Long id) {
         RetrofitCommonGeneric.retroitGenerics(iDailyServiceRequest.delete(id));
     }
